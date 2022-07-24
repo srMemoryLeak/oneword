@@ -1,0 +1,21 @@
+body{
+    background-color: whitesmoke;
+}
+
+.my-container{
+    margin-top:30px;
+    border: 5px black solid;
+    border-radius: 30px;
+    background-color: white;
+}
+
+.small-container{
+    width: 90%;
+    margin-top:30px;
+    margin-bottom:30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 2px black solid;
+    border-radius: 20px;
+    background-color: whitesmoke;
+}

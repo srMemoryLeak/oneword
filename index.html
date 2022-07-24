@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>尿恋小故事生成器 By ML</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="plugins/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="main.css">
+        <script src="plugins/jquery-3.3.1.min.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div class="container my-container justify-content-center">
+            <h1 class="container text-center"  style="margin: 50px 0px 15px 0px">尿恋小故事生成器</h1>
+            <div class="row justify-content-center" style="margin: 25px 0px 45px 0px">
+                <div class="col-5 text-right">
+                    <i class="fa fa-globe"></i>
+                    <a>source</a>
+                </div>
+                    <div class="col-2">&nbsp;</div>
+                    <div class="col-5 text-left">
+                    <i class="fa fa-user-circle-o"></i>
+                    <a>Memory_Leak</a>
+                </div>
+            </div>
+            <div class="form-inline justify-content-center" style="margin: 15px 0px 15px 0px">
+                <div class="form-group col-12 justify-content-center">
+                    <label id="mylabel">你的论坛的ID（圈名）：</label>
+                    <input type="text" class="form-control" id="myname" value="Memory_Leak"/>
+                  </div>
+                  <div class="form-group col-12 justify-content-center" style="margin-top:20px;">
+                      <label id="mylabel">你的性别：</label>
+                      <select class="form-control" id="mygender">
+                        <option>男</option>
+                        <option>女</option>
+                      </select>
+                    </div>
+                  <div class="form-group col-12 justify-content-center" style="margin-top:20px;">
+                    
+                    <button class="btn btn-success" style="margin-left:3%;" onclick="addElement()">生成！</button>
+                    <button class="btn btn-danger" style="margin-left:3%;" onclick="copyText()">复制到剪贴板</button>
+                  </div>
+            </div>
+            <div class="container small-container">
+                <h3 class="text-center"><span id="nickname">______</span>的尿恋小故事：</h3>
+                <div class="row  justify-content-center">
+                    <div class="col-10" id="story">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
