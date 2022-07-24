@@ -83,5 +83,5 @@ function addElement(){
       }
 
 function  toluntan(){
-    window.open("https://www.shireyishunjian.com/main/forum.php?mod=viewthread&tid=218215")
+    window.href = "https://www.shireyishunjian.com/main/forum.php?mod=viewthread&tid=218215"
 }
