@@ -42,7 +42,7 @@ function genMsg(name,gender, hash){
     let reason = msgList[2][list[1]];
     let place = msgList[3][list[2]];
     let result = msgList[4][list[3]];
-    let msg=`${name}穿着${cloth}，因为${reason}，最终在${place}，${result}。`
+    let msg=`穿着${cloth}的${name}，因为${reason}，最终在${place}，${result}。`
     return msg;
 }
 
