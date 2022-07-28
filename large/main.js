@@ -1,6 +1,6 @@
 
 var defaultnull="<tr><td>&nbsp;</td></tr>";
-
+var color = new Color();
 function addToContent(name, msg){
     $("#nickname").text(name);
     $("#story").text("");
@@ -22,24 +22,6 @@ function randstory(){
     game.run();
     setStory(game.story);
 }
-
-function genStory(){
-    var name = document.getElementById("myname").value;
-    var gender = parseInt(document.getElementById("mygender").value);
-    var age = parseInt(document.getElementById("myage").value); 
-    if(name==""){
-        alert("请输入你的主角名！");
-        return;
-    }
-    $("#nickname").text(name);
-    $("#story").text("");
-    seed = genSeed(name);
-    var game = new Game(name,gender,age,seed);
-    game.debug();
-    game.run();
-    setStory(game.story);
-}
-
 
 function sleep(numberMillis) {
     var now = new Date();

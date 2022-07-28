@@ -41,9 +41,9 @@ class NormalStoryPiece extends StoryPiece{
         if(isActive){
             var msg = this.getmsg();
             eval("msg = "+"`"+msg+"`");
+            eval(this.effect);
             //console.log(this.name);
             game.deal(msg);
-            eval(this.effect);
         }
         return this.outpiece[ myRandom(this.outpiece.length) ]
     }
@@ -60,15 +60,15 @@ class TCStoryPiece extends StoryPiece{
         var isActive = eval(this.condition);
         if(isActive){
             var msg = this.getmsg();
+            eval(this.effect);
             //console.log(this.name);
             game.deal(msg);
-            eval(this.effect);
             return this.outpiece[0][ myRandom(this.outpiece[0].length) ]
         }else{
             var msg = this.getmsg();
+            eval(this.effect);
             //console.log(this.name);
             game.deal(msg);
-            eval(this.effect);
             return this.outpiece[1][ myRandom(this.outpiece[1].length) ]
         }
     }
@@ -90,12 +90,14 @@ class SCStoryPiece extends StoryPiece{
             var calcresult = bladderOffset -(sansresult - char.urine) + game.tempsc + game.fixsc;
             var result = checkresult(calcresult);
         }
+        game.tempsc=0;
         //console.log("bladderOffset:"+bladderOffset)
         //console.log("sansresult:"+sansresult)
         //console.log("calcresult:"+calcresult)
         //console.log("result:"+result)
         char.deal_urine(result)
         var msg = this.getmsg();
+        eval(this.effect);
         //console.log(this.name);
         game.deal(msg);
         return this.outpiece[result][ myRandom(this.outpiece[result].length) ]

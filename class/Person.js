@@ -17,6 +17,7 @@ class Person{
         this.urine=0;
         this.seed = seed;
         this.build_att();
+        this.clothes = new ClothesSet();
     }
 
     build_att(){
@@ -43,5 +44,49 @@ class Person{
 
     debug(){
         console.log(this);
+    }
+    fit(cl){
+        var flag = true;
+        (c_list).forEach(element => {
+            var cond = "this.clothes."+element+"!=null  && cl." + element +"==true";
+            if(eval(cond)==true){
+                flag=false;
+            }
+        });
+        if(!flag)return;
+        var t = cl.type;
+        eval("this.clothes."+t+"=cl");
+
+        (c_list).forEach(element => {
+            var cond = "this.clothes."+element+"==null  && cl." + element +"==true && '"+element + "'!= cl.type";
+            if(eval(cond)==true){
+                eval("this.clothes."+element + "= new Clothes()");
+            }
+        });
+    }
+
+    getClothes(){
+        var temp=`${this.name}今天的穿着是这样的：`
+        if(this.clothes.up.name!=null){
+            var up = this.clothes.up
+            temp += `${up.color}的${up.name}，${up.description}`
+        }
+        if(this.clothes.down.name!=null){
+            var down = this.clothes.down
+            temp += `随后，下半身穿的是${down.color}的${down.name}，${down.description}`
+        }
+        if(this.clothes.leg.name!=null){
+            var leg = this.clothes.leg
+            temp += `腿上则穿的是${leg.color}的${leg.name}，${leg.description}`
+        }
+        if(this.clothes.sock.name!=null){
+            var sock = this.clothes.sock
+            temp += `脚上先套了一双${sock.color}的${sock.name}，${sock.description}`
+        }
+        if(this.clothes.foot.name!=null){
+            var foot = this.clothes.foot
+            temp += `最后，穿上${foot.color}的${foot.name}，${foot.description}`
+        }
+        return temp;
     }
 }

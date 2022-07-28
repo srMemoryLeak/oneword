@@ -19,6 +19,28 @@ class Game{
             eval("sp = new "+ piece.type+"StoryPiece" +"(piece);");
             this.storyPieces.push(sp);
         }
+        this.clothes_list = new Array();
+        for(var i=0;i<cjs.clothes.length;i++){
+            var c = cjs.clothes[i];
+            var cl = new Clothes(c, this.person);
+            this.clothes_list.push(cl);
+        }
+        this.clothes_list = shuffle(this.clothes_list)
+        //build clothes
+        console.log(this.clothes_list);
+        var c_list=["up", "down", "leg", "sock","foot","under"];
+
+        for(var i=0;i<this.clothes_list.length;i++){
+            var cl = this.clothes_list[i];
+            this.person.fit(cl);
+        }
+        
+        c_list.forEach(element => {
+            var cond = "this.person."+element+"==null";
+            if(eval(cond)==true){
+                eval("this.person."+element+"=new Clothes()")
+            }
+        });
     }
 
     run(){
@@ -35,6 +57,6 @@ class Game{
     }
 
     debug(){
-        //console.log(this);
+        console.log(this);
     }
 }

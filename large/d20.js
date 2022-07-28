@@ -112,3 +112,14 @@ function delIdx(li, idx){
     }
     return rtn;
 }
+function randomSort(a, b) { return myRandom(2) > 0 ? -1 : 1; }
+function shuffle(li){
+    return li.sort(randomSort);
+}
+
+
+function randomChoice(li){
+    var len = li.length;
+    var idx = myRandom(len);
+    return li[idx];
+}
