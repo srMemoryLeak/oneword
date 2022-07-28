@@ -19,3 +19,27 @@ body{
     border-radius: 20px;
     background-color: whitesmoke;
 }
+
+.my-button{
+    height:200px;
+    justify-content: center;
+    cursor:pointer;
+    background-color: #eee;
+    color: #000;
+    font-size: 1.5em;
+    font-weight: bold;
+    vertical-align: middle!important;
+}
+.my-button:hover{
+    background-color: #333;
+    color: #eee;
+}
+
+.bar-small{
+    margin-top:-20px;
+}
+
+#myhint{
+    color: #777;
+    font-size: 0.8em;
+}

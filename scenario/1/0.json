@@ -1,0 +1,359 @@
+{
+    "name": "郊游",
+    "storyPieces": [
+        {
+            "sid": 0,
+            "type": "Normal",
+            "name": "Start",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "今天对于${char.name}来说，是非常值得期待的一天——她的学校今天要组织大家去郊游！郊游地点选在市区外的一座山上，风景非常好，不过需要坐两个小时的大巴才能到达。"
+            ],
+            "outpiece": [
+                21
+            ]
+        },
+        {
+            "sid": 1,
+            "type": "Normal",
+            "name": "Get_Up_Late",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "不过，${char.name}还是做错了一件事——她居然忘记给今天定闹钟了！等${gender(char.gender)}醒来时，距离集合已经不到半个小时了！${gender(char.gender)}慌慌张张地跑出了门，甚至没来得及上厕所……"
+            ],
+            "effect": "char.bladder = char.bladderM + 12; char.belly += 8;",
+            "outpiece": [
+                4
+            ]
+        },
+        {
+            "sid": 2,
+            "type": "Normal",
+            "name": "Block_Toliet",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "吃过早餐，${char.name}决定出门之前先去一下厕所。但当${gender(char.gender)}走进厕所时，发现自己家的厕所似乎堵上了，满满当当的全是污水。看来今天运气不好，早上是没办法用厕所了。${char.name}只好对自己的膀胱说：就先苦一苦你吧，然后就带着完全没有释放的，装着昨天一晚上尿水的水球出门了……"
+            ],
+            "effect": "char.bladder = char.bladderM + 8; char.belly += 10;",
+            "outpiece": [
+                4
+            ]
+        },
+        {
+            "sid": 3,
+            "type": "Normal",
+            "name": "Arrive_Early",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "${char.name}似乎起的太早了，等${gender(char.gender)}到达车站才发现——离预定的集合时间还有整整半个小时呢！她等人的时候，又因为口渴，喝下了许多${drink()}。"
+            ],
+            "effect": "char.bladder = char.bladderM + 8; char.belly += 10;",
+            "outpiece": [
+                4
+            ]
+        },
+        {
+            "sid": 4,
+            "type": "Normal",
+            "name": "On_The_Bus",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "很快，大家都到齐了，${char.name}也登上了大巴。车子发动了，预计大概需要两个小时才能到达目的地，${char.name}此时已经开始感到些许尿意，但她只能想办法先抚慰一下自己的小腹，双腿夹紧，心怀不安地踏上了旅途……"
+            ],
+            "effect": "char.bladder = char.bladder + 2; char.belly -= 2;game.roundMax=4, game.round=0;",
+            "outpiece": [
+                5
+            ]
+        },
+        {
+            "sid": 5,
+            "type": "Normal",
+            "name": "Traffic_Jam",
+            "activateRate": 30,
+            "no_repeat": true,
+            "description": [
+                "很不巧的是，作为节假日，今天出来玩的人可太多了！路上一下堵得水泄不通，这样下去，${char.name}恐怕就得在车上隐忍更久的时间了呢。",
+                "然而，节假日的公路总是人满为患的，一下子，${char.name}就遭遇了大堵车，这样下去，原本就憋了这么久的${char.name}，等待去厕所的时间将会更加漫长。"
+            ],
+            "effect": "game.roundMax=8;",
+            "outpiece": [
+                6
+            ]
+        },
+        {
+            "sid": 6,
+            "type": "TC",
+            "condition": "game.round<game.roundMax",
+            "name": "if_round_exceed",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                ""
+            ],
+            "effect": "",
+            "outpiece": [
+                [
+                    7,
+                    7,
+                    7,
+                    8,
+                    8,
+                    9,
+                    10,
+                    10,
+                    10,
+                    10,
+                    10
+                ],
+                [
+                    18
+                ]
+            ]
+        },
+        {
+            "sid": 7,
+            "type": "Normal",
+            "name": "Drink-1",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "大巴一路摇摇晃晃，${char.name}感觉到有些不适，大概是有点晕车吧，总之，${gender(char.gender)}为了缓解晕车的不适感，又在车上喝了一些${drink()}。",
+                "与${char.name}坐在一起的同学，递给了${char.name}一杯${drink()}，${char.name}只能装作无事发生，将这杯${drink()}全部喝了下去。",
+                "为了缓解旅途的无聊感觉，${char.name}掏出了自己带着的，最喜欢的茶饮料，一下子咕咚咕咚地喝了起来，等${gender(char.gender)}意识到自己是不是喝的有点多时，整瓶饮料已经被她喝掉了一大半。"
+            ],
+            "effect": "char.belly += 4;",
+            "outpiece": [
+                11
+            ]
+        },
+        {
+            "sid": 8,
+            "type": "Normal",
+            "name": "Break-1",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "突然，大巴车来了一个急刹！这突如其来的一个刺激，让${char.name}受到了惊吓，一下子，${gender(char.gender)}压力倍增。",
+                "大巴车突然一下来了个急刹，扣在${char.name}小腹上的安全带，狠狠地勒住了${char.name}，让${gender(char.gender)}一下子没有喘过气来。",
+                "哔哔哔！突然大巴车司机对着前面慢慢悠悠的车猛按了一阵喇叭。车上的胆子小的同学都惊叫出声来，同时也让${char.name}狠狠地吓了一跳，但${gender(char.gender)}马上意识到了什么，赶紧收回双腿，努力控制住想趁乱涌出的尿流。"
+            ],
+            "effect": "game.tempsc += 2",
+            "outpiece": [
+                11
+            ]
+        },
+        {
+            "sid": 9,
+            "type": "Normal",
+            "name": "Large-Drink-1",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "为了缓解旅途的无趣，${char.name}拆开了一包辣条，细细地咀嚼。但很快，${char.name}就被辣味呛到，被迫又把自己带的矿泉水喝了一大半。"
+            ],
+            "effect": "char.belly += 6;char.bladder += 2;",
+            "outpiece": [
+                11
+            ]
+        },
+        {
+            "sid": 10,
+            "type": "Normal",
+            "name": "Null-1",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "大巴车继续在高速公路上行进，窗外的风景转瞬即逝。大部分的同学都在闭幕养神，只有我们的主角${char.name}，此时还在自己的座位上，左右扭动，与自己肚子里的水球默默抗争。",
+                "大巴在车流里缓慢前行，${char.name}眼巴巴地望着窗外密密麻麻的车流，祈祷着下一秒，车流就能缓解，大家就能更快地到达目的地，这样自己就能更快地抵达厕所……",
+                "大巴继续在公路上行进着，坐在座位上的${char.name}仍然在继续与自己逐渐增强的尿意抗争。她不敢做出多余的动作，只能用手缓缓摩擦着大腿，似乎这样能起到一些心理安慰作用。",
+                "${char.name}肚子里的尿意越来越强，她不自主地摆动着双脚，时不时地踢到前面的座位。最终，前座的人实在受不了了，甚至回头提醒${char.name}，让${gender(char.gender)}悠着点。",
+                "为了对抗越来越充盈的大水球，${char.name}几乎是使出了浑身解数。${char.name}用手一会轻轻地隔着上衣，轻轻抚慰着小腹，一会又轻轻地摩擦着大腿，两腿也没有闲着，死死夹紧的同时，也在前后摆动。",
+                "来自${char.name}小腹的酸胀感越来越强，${char.name}现在几乎无暇思考别的东西，只能集中全力，与肚子里的小水球抗争。"
+            ],
+            "effect": "",
+            "outpiece": [
+                11
+            ]
+        },
+        {
+            "sid": 11,
+            "type": "SC",
+            "name": "SC-1",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                ""
+            ],
+            "effect": "tempsc = 0;",
+            "offset": 0,
+            "outpiece": [
+                [
+                    12
+                ],
+                [
+                    12
+                ],
+                [
+                    13
+                ],
+                [
+                    14
+                ],
+                [
+                    15
+                ],
+                [
+                    15
+                ]
+            ]
+        },
+        {
+            "sid": 12,
+            "type": "Normal",
+            "name": "Despration-1",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                ""
+            ],
+            "effect": "",
+            "outpiece": [
+                16
+            ]
+        },
+        {
+            "sid": 13,
+            "type": "Normal",
+            "name": "Despration-2",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "突然，一波强烈的尿意袭来，尽管${char.name}用尽全力，夹紧双腿，但是仍然晚了半步。${char.name}明显地感觉得到，自己的出水口上，已经冒出了一些水滴。",
+                "这时，${char.name}突然放松了自己对出水口的控制，但也在这一瞬，${char.name}就立刻意识到了大事不妙，${gender(char.gender)}立刻弯下腰，死死地并拢双腿，还好，只是渗漏出了几滴漏网之鱼，现在${char.name}感觉到了自己的内裤已然被汗水与微微渗出的尿水润湿。"
+            ],
+            "effect": "",
+            "outpiece": [
+                16
+            ]
+        },
+        {
+            "sid": 14,
+            "type": "Normal",
+            "name": "Despration-3",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "“坏了！”，${char.name}感觉到自己的尿意不受控制，她死死地用手抵住了自己的出水口，但是仍然是白费功夫。当${gender(char.name)}松开自己攥着裆部的手时，已经看见一小块圆形的湿斑，显然，已经漏出了很一小股水流",
+                "这次的尿意明显比上次来得更强，${char.name}痛苦地弯下腰去，她甚至差点哭出声，她甚至已经能听到一股水流砸在地面的声音，自己的内裤传来的潮湿感也更加严重了。"
+            ],
+            "effect": "",
+            "outpiece": [
+                16
+            ]
+        },
+        {
+            "sid": 15,
+            "type": "Normal",
+            "name": "Despration-4",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "尽管${char.name}使劲了全力，但今天装在${char.name}的膀胱里的尿水，显然不是什么好对付的角色。${char.name}终究还是再也没办法忍住，出水口逐渐痉挛，失控……",
+                "${char.name}意识到，自己娇嫩的出水口，今天可能真的已经尽力了。${gender(char.gender)}又一不小心，发出了一大股水流。一旦水流倾泻出来，尿意会越来越强，反而越来越难憋，对于${char.name}来说，失禁将会是迟早的事了……"
+            ],
+            "effect": "",
+            "outpiece": [
+                17
+            ]
+        },
+        {
+            "sid": 16,
+            "type": "Normal",
+            "name": "roundcount",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                ""
+            ],
+            "effect": "game.round += 1;if(char.belly>0){char.belly-=1;char.bladder+=1;}",
+            "outpiece": [
+                6
+            ]
+        },
+        {
+            "sid": 17,
+            "type": "Normal",
+            "name": "BE",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "${char.name}拼命想要继续夺回出水口的控制权，但她已经太累了。渗出的水流，还是越来越猛烈，尿流砸在地板上的声音，现在连坐在${gender(char.gender)}旁边的同学都听得一清二楚，很快，${char.name}的身下彻底湿透，尿水源源不断地，从皮座椅上淋下来，形成了一道猛烈的瀑布。",
+                "${char.name}再也无力控制住自己的出水口了，${gender(char.gender)}的大腿开始猛烈颤抖，${gender(char.gender)}用双手捂住红透了的脸，整个人都弯下腰去，伴随着大腿的震颤，一股又一股的尿流开始砸在地板上，发出一阵又一阵的“哗啦”声。",
+                "“呜呜呜——”伴随着${char.name}的哭喊的，是${gender(char.gender)}身下的猛烈的，“劈里啪啦”的水流砸在地上的声音。伴随着车厢的晃荡，${gender(char.gender)}的尿水在车厢的地板上肆意扩散，几乎每个人都要踩在${char.name}的尿水之中了！"
+            ],
+            "effect": "",
+            "outpiece": [
+                19
+            ]
+        },
+        {
+            "sid": 18,
+            "type": "End",
+            "name": "End-Temp",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                ""
+            ],
+            "effect": "game.round += 1;",
+            "outpiece": []
+        },
+        {
+            "sid": 19,
+            "type": "End",
+            "name": "End-Temp-2",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                "下车之后，${char.name}没有跟着大部队一起继续玩，而是躲在了一个角落，大声哭泣起来——在全班同学都在的大巴上，公开失禁，尿得整个大巴都是，还有什么比这更难受呢？"
+            ],
+            "effect": "game.round += 1;",
+            "outpiece": []
+        },
+        {
+            "sid": 20,
+            "type": "Normal",
+            "name": "cloth-describe",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                ""
+            ],
+            "effect": "game.round += 1;",
+            "outpiece": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "sid": 21,
+            "type": "Normal",
+            "name": "char-describe",
+            "activateRate": 100,
+            "no_repeat": true,
+            "description": [
+                ""
+            ],
+            "effect": "game.round += 1;",
+            "outpiece": [
+                20
+            ]
+        }
+    ]
+}

@@ -1,0 +1,183 @@
+[
+    {
+        "sid": 0,
+        "type":"Normal",
+        "name":"Start",
+        "activateRate":100,
+        "description": [""],
+        "outpiece":[1,2,3]
+    },
+    {
+        "sid": 1,
+        "type":"Normal",
+        "name":"Get_Up_Late",
+        "activateRate":100,
+        "description": [""],
+        "effect":"char.bladder = char.bladderM + 4; char.belly += 6;",
+        "outpiece":[4]
+    },
+    {
+        "sid": 2,
+        "type":"Normal",
+        "name":"Block_Toliet",
+        "activateRate":100,
+        "description": [""],
+        "effect":"char.bladder = char.bladderM + 4; char.belly += 6;",
+        "outpiece":[4]
+    },
+    {
+        "sid": 3,
+        "type":"Normal",
+        "name":"Arrive_Early",
+        "activateRate":100,
+        "description": [""],
+        "effect":"char.bladder = char.bladderM + 4; char.belly += 6;",
+        "outpiece":[4]
+    },
+    {
+        "sid": 4,
+        "type":"Normal",
+        "name":"On_The_Bus",
+        "activateRate":100,
+        "description": [""],
+        "effect":"char.bladder = char.bladder + 2; char.belly -= 2;var roundMax=4, round=0;",
+        "outpiece":[5]
+    },
+    {
+        "sid": 5,
+        "type":"Normal",
+        "name":"Traffic_Jam",
+        "activateRate":50,
+        "description": [""],
+        "effect":"roundMax=6;",
+        "outpiece":[6]
+    },
+    {
+        "sid": 6,
+        "type":"TC",
+        "condition":"round<roundMax",
+        "name":"if_round_exceed",
+        "activateRate":100,
+        "description": [""],
+        "effect":"",
+        "outpiece":[[7,7,8,8,9,10,10,10,10,10],[18]]
+    },
+    {
+        "sid": 7,
+        "type":"Normal",
+        "name":"Drink-1",
+        "activateRate":100,
+        "description": [""],
+        "effect":"char.belly += 4;",
+        "outpiece":[11]
+    },
+    {
+        "sid": 8,
+        "type":"Normal",
+        "name":"Break-1",
+        "activateRate":100,
+        "description": [""],
+        "effect":"this.tempsc -= 1",
+        "outpiece":[11]
+    },
+    {
+        "sid": 9,
+        "type":"Normal",
+        "name":"Large-Drink-1",
+        "activateRate":100,
+        "description": [""],
+        "effect":"char.belly += 6;char.bladder += 2;",
+        "outpiece":[11]
+    },
+    {
+        "sid": 10,
+        "type":"Normal",
+        "name":"Null-1",
+        "activateRate":100,
+        "description": [""],
+        "effect":"",
+        "outpiece":[11]
+    },
+    {
+        "sid": 11,
+        "type":"SC",
+        "name":"SC-1",
+        "activateRate":100,
+        "description": [""],
+        "effect":"",
+        "offset":0,
+        "outpiece":[[12],[13],[14],[15],[15]]
+    },
+    {
+        "sid": 12,
+        "type":"Normal",
+        "name":"Despration-1",
+        "activateRate":100,
+        "description": [""],
+        "effect":"",
+        "outpiece":[16]
+    },
+    {
+        "sid": 13,
+        "type":"Normal",
+        "name":"Despration-2",
+        "activateRate":100,
+        "description": [""],
+        "effect":"",
+        "outpiece":[16]
+    },
+    {
+        "sid": 14,
+        "type":"Normal",
+        "name":"Despration-3",
+        "activateRate":100,
+        "description": [""],
+        "effect":"",
+        "outpiece":[16]
+    },
+    {
+        "sid": 15,
+        "type":"Normal",
+        "name":"Despration-4",
+        "activateRate":100,
+        "description": [""],
+        "effect":"",
+        "outpiece":[17]
+    },
+    {
+        "sid": 16,
+        "type":"Normal",
+        "name":"roundcount",
+        "activateRate":100,
+        "description": [""],
+        "effect":"round += 1;",
+        "outpiece":[6]
+    },
+    {
+        "sid": 17,
+        "type":"Normal",
+        "name":"roundcount",
+        "activateRate":100,
+        "description": [""],
+        "effect":"round += 1;",
+        "outpiece":[19]
+    },
+    {
+        "sid": 18,
+        "type":"End",
+        "name":"End-Temp",
+        "activateRate":100,
+        "description": [""],
+        "effect":"round += 1;",
+        "outpiece":[]
+    },
+    {
+        "sid": 19,
+        "type":"End",
+        "name":"End-Temp-2",
+        "activateRate":100,
+        "description": [""],
+        "effect":"round += 1;",
+        "outpiece":[]
+    }
+]
